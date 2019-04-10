@@ -1,0 +1,3 @@
+INDEX VERSION 1.130+D:\Barcelos\Desktop\Terceiro período\Matemática Discreta\MetodoDeNewton\.metadata\.plugins\org.eclipse.jdt.core
+1830557040.index
+3259969932.index
