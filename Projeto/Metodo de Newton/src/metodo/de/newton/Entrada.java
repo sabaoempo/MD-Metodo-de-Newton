@@ -195,8 +195,18 @@ public class Entrada extends javax.swing.JFrame {
         });
 
         jBOk.setText("Ok");
+        jBOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBOkActionPerformed(evt);
+            }
+        });
 
         jBFechaParenteses.setText(")");
+        jBFechaParenteses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFechaParentesesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,11 +264,14 @@ public class Entrada extends javax.swing.JFrame {
                             .addComponent(jBClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBDivisao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jLEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(192, 192, 192)
+                                .addComponent(jLEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -341,8 +354,10 @@ public class Entrada extends javax.swing.JFrame {
     private void jBMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMultiplicacaoActionPerformed
         // TODO add your handling code here:
         if(!jLExpressao.getText().equals(expressaoInit)&&
-                (!jLExpressao.getText().endsWith("+")||!jLExpressao.getText().endsWith("-")||!jLExpressao.getText().endsWith("*")||!jLExpressao.getText().endsWith("/"))){ 
+                !(jLExpressao.getText().endsWith("+")||jLExpressao.getText().endsWith("-")||jLExpressao.getText().endsWith("*")||jLExpressao.getText().endsWith("/")||jLExpressao.getText().endsWith("("))){
             jLExpressao.setText(jLExpressao.getText()+"*");
+        }else{
+            //TODO add alert
         }
     }//GEN-LAST:event_jBMultiplicacaoActionPerformed
 
@@ -403,35 +418,47 @@ public class Entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_jBxActionPerformed
 
     private void jBClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClearActionPerformed
-        // TODO add your handling code here:
         jLExpressao.setText(expressaoInit);
+        //TODO limpar dados da memória
     }//GEN-LAST:event_jBClearActionPerformed
 
     private void jBPotenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPotenciaActionPerformed
         // TODO add your handling code here:
-        if(!jLExpressao.getText().equals(expressaoInit)&&(!jLExpressao.getText().endsWith("+")||!jLExpressao.getText().endsWith("-")||!jLExpressao.getText().endsWith("*")||!jLExpressao.getText().endsWith("/"))){
+        if(!jLExpressao.getText().equals(expressaoInit)&&
+                !(jLExpressao.getText().endsWith("+")||jLExpressao.getText().endsWith("-")||jLExpressao.getText().endsWith("*")||jLExpressao.getText().endsWith("/")||jLExpressao.getText().endsWith("("))){
             jLExpressao.setText(jLExpressao.getText()+"^(");
+        }else{
+            //TODO add alert
         }
     }//GEN-LAST:event_jBPotenciaActionPerformed
 
     private void jBAdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicaoActionPerformed
         // TODO add your handling code here:
-        if(!jLExpressao.getText().equals(expressaoInit)){ 
+        if(!jLExpressao.getText().equals(expressaoInit)&&
+                !(jLExpressao.getText().endsWith("+")||jLExpressao.getText().endsWith("-")||jLExpressao.getText().endsWith("*")||jLExpressao.getText().endsWith("/")||jLExpressao.getText().endsWith("("))){
             jLExpressao.setText(jLExpressao.getText()+"+");
+        }else{
+            //TODO add alert
         }
     }//GEN-LAST:event_jBAdicaoActionPerformed
 
     private void jBSubtracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSubtracaoActionPerformed
         // TODO add your handling code here:
-        if(!jLExpressao.getText().equals(expressaoInit)){ 
+        if(!jLExpressao.getText().equals(expressaoInit)&&
+                !(jLExpressao.getText().endsWith("+")||jLExpressao.getText().endsWith("-")||jLExpressao.getText().endsWith("*")||jLExpressao.getText().endsWith("/")||jLExpressao.getText().endsWith("("))){
             jLExpressao.setText(jLExpressao.getText()+"-");
+        }else{
+            //TODO add alert
         }
     }//GEN-LAST:event_jBSubtracaoActionPerformed
 
     private void jBDivisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDivisaoActionPerformed
         // TODO add your handling code here:
-        if(!jLExpressao.getText().equals(expressaoInit)){ 
+        if(!jLExpressao.getText().equals(expressaoInit)&&
+                !(jLExpressao.getText().endsWith("+")||jLExpressao.getText().endsWith("-")||jLExpressao.getText().endsWith("*")||jLExpressao.getText().endsWith("/")||jLExpressao.getText().endsWith("("))){
             jLExpressao.setText(jLExpressao.getText()+"/");
+        }else{
+            //TODO add alert
         }
     }//GEN-LAST:event_jBDivisaoActionPerformed
 
@@ -443,9 +470,27 @@ public class Entrada extends javax.swing.JFrame {
             if(jLExpressao.getText().endsWith("(")||jLExpressao.getText().endsWith("+")||jLExpressao.getText().endsWith("-")||jLExpressao.getText().endsWith("*")||jLExpressao.getText().endsWith("/")){
                 //TODO add alert
             }else
-                jLExpressao.setText(jLExpressao.getText()+")");
+                jLExpressao.setText(jLExpressao.getText()+"(");
         }
     }//GEN-LAST:event_jBAbreParentesesActionPerformed
+
+    private void jBFechaParentesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFechaParentesesActionPerformed
+        // TODO add your handling code here:
+        if(jLExpressao.getText().equals(expressaoInit)){
+            jLExpressao.setText(")");
+        }else{
+            if(jLExpressao.getText().endsWith("(")||jLExpressao.getText().endsWith("+")||jLExpressao.getText().endsWith("-")||jLExpressao.getText().endsWith("*")||jLExpressao.getText().endsWith("/")){
+                //TODO add alert
+            }else
+                jLExpressao.setText(jLExpressao.getText()+")");
+        }
+    }//GEN-LAST:event_jBFechaParentesesActionPerformed
+
+    private void jBOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOkActionPerformed
+        // TODO add your handling code here:
+        TelaResultado tr = new TelaResultado();
+        tr.setVisible(true);
+    }//GEN-LAST:event_jBOkActionPerformed
 
     /**
      * @param args the command line arguments
