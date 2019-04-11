@@ -1,0 +1,8 @@
+
+public enum Operator {
+	ADICAO,
+	SUBTRACAO,
+	MULTIPLICACAO,
+	DIVISAO,
+	POTENCIA
+}
