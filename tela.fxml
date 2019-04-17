@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.Controller">
+   <children>
+      <Label layoutX="373.0" layoutY="14.0" text="Polinômio" />
+      <TextArea fx:id="Polinomio" editable="false" layoutX="225.0" layoutY="39.0" prefHeight="37.0" prefWidth="350.0" />
+      <Button fx:id="butZero" layoutX="377.0" layoutY="457.0" mnemonicParsing="false" onAction="#handleButZero" prefHeight="30.0" prefWidth="50.0" text="0" />
+      <Button layoutX="375.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleButDois" prefHeight="30.0" prefWidth="50.0" text="2" />
+      <Button layoutX="450.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleButTres" prefHeight="30.0" prefWidth="50.0" text="3" />
+      <Button layoutX="300.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleButQuatro" prefHeight="30.0" prefWidth="50.0" text="4" />
+      <Button layoutX="377.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleButCinco" prefHeight="30.0" prefWidth="50.0" text="5" />
+      <Button layoutX="450.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleButSeis" prefHeight="30.0" prefWidth="50.0" text="6" />
+      <Button layoutX="300.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleButUm" prefHeight="30.0" prefWidth="50.0" text="1" />
+      <Button layoutX="303.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleButSete" prefHeight="30.0" prefWidth="50.0" text="7" />
+      <Button layoutX="376.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleButOito" prefHeight="30.0" prefWidth="50.0" text="8" />
+      <Button layoutX="448.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleButNove" prefHeight="30.0" prefWidth="50.0" text="9" />
+      <Button layoutX="450.0" layoutY="457.0" mnemonicParsing="false" onAction="#handleMult" prefHeight="30.0" prefWidth="50.0" text="*" />
+      <Button layoutX="300.0" layoutY="457.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="30.0" prefWidth="50.0" text="+" />
+      <Button layoutX="300.0" layoutY="506.0" mnemonicParsing="false" onAction="#handleSub" prefHeight="30.0" prefWidth="50.0" text="-" />
+      <Button layoutX="450.0" layoutY="506.0" mnemonicParsing="false" onAction="#handleDiv" prefHeight="30.0" prefWidth="50.0" text="/" />
+      <Label fx:id="quantMon" layoutX="264.0" layoutY="106.0" text="O polinômio será formado por quantos monômios?" />
+      <TextField fx:id="quantFiel" editable="false" layoutX="366.0" layoutY="145.0" prefHeight="25.0" prefWidth="69.0" />
+      <TextField fx:id="quantFiel1" editable="false" layoutX="366.0" layoutY="409.0" prefHeight="25.0" prefWidth="69.0" visible="false" />
+      <Button fx:id="confirmQuant" layoutX="367.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleConfirmQuant" text="Confirmar" />
+      <Label fx:id="campoErro" layoutX="347.0" layoutY="212.0" text="Quantidade invalida" visible="false" />
+      <Label fx:id="mostraQuant" layoutX="328.0" layoutY="106.0" text="Base do primeiro monômio" visible="false" />
+      <Label fx:id="mostraSinal" layoutX="353.0" layoutY="106.0" text="Sinal da operação" visible="false" />
+
+      <Button fx:id="confirmBaseMon1" layoutX="367.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleConfirmBaseMon1" text="Confirmar" visible="false" />
+      <Button fx:id="confirmExp1" layoutX="367.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleConfirmExp1" text="Confirmar" visible="false" />
+      <Button fx:id="confirmSinal1" layoutX="367.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleConfirmSinal1" text="Confirmar" visible="false" />
+
+      <Button fx:id="confirmBase2" layoutX="367.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleConfirmBaseMon2" text="Confirmar" visible="false" />
+      <Button fx:id="confirmExp2" layoutX="367.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleConfirmExp2" text="Confirmar" visible="false" />
+      <Button fx:id="confirmSinal2" layoutX="367.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleConfirmSinal2" text="Confirmar" visible="false" />
+
+   </children>
+</AnchorPane>
