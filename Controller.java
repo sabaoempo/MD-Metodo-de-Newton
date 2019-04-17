@@ -21,11 +21,13 @@ public class Controller {
     private TextArea Polinomio;
 
     @FXML
-    private Button butZero, confirmQuant, confirmBaseMon1, confirmExp1, confirmSinal1, confirmBase2, confirmExp2;
+    private Button butZero, confirmQuant, confirmBase1, confirmExp1, confirmSinal1, confirmBase2, confirmExp2, confirmSinal2, confirmBase3, confirmExp3;
 
+    @FXML
+    private  Button confirmBase4, confirmExp4, confirmBase5, confirmExp5,confirmBase6, confirmExp6;
     private boolean simbol;
     
-    public static int quantidade, monAtual;
+    public static int quantidade, sinalAtual;
 
     public void handleButZero(ActionEvent e){
         String mAtual = quantFiel.getText();
@@ -104,7 +106,7 @@ public class Controller {
                 quantMon.setVisible(false);
                 mostraQuant.setVisible(true);
                 confirmQuant.setVisible(false);
-                confirmBaseMon1.setVisible(true);
+                confirmBase1.setVisible(true);
                  quantFiel.setText("");
                  quantidade = q;
             }
@@ -118,7 +120,7 @@ public class Controller {
         mostraQuant.setText("Expoente do primeiro monômio");
         Polinomio.setText(String.valueOf(base1));
         quantFiel.setText("");
-        confirmBaseMon1.setVisible(false);
+        confirmBase1.setVisible(false);
         confirmExp1.setVisible(true);
         quantFiel.setText("");
     }
@@ -133,6 +135,7 @@ public class Controller {
             CMain.solveit(1);
         }
         else{
+            sinalAtual=1;
             quantFiel.setText("");
             mostraQuant.setText("Base do segundo monômio");
             mostraQuant.setVisible(false);
@@ -142,19 +145,27 @@ public class Controller {
         }
     }
 
-    public void handleConfirmSinal1(ActionEvent e){
-        String s = quantFiel.getText();
-        CMain.setSinal1(s);
-        quantFiel.setText("");
-        confirmBase2.setVisible(true);
-        mostraQuant.setVisible(true);
-        mostraSinal.setVisible(false);
-        String p = Polinomio.getText();
-        Polinomio.setText(p + s);
+    public void handleConfirmSinal(ActionEvent e) {
+        if (sinalAtual == 1){
+            String s = quantFiel.getText();
+            CMain.setSinal1(s);
+            quantFiel.setText("");
+            confirmBase2.setVisible(true);
+            mostraQuant.setVisible(true);
+            mostraSinal.setVisible(false);
+            String p = Polinomio.getText();
+            Polinomio.setText(p + s);
         }
-
-    public void handleConfirmSinal2(ActionEvent actionEvent) {
-
+        if (sinalAtual == 2){
+            String s = quantFiel.getText();
+            CMain.setSinal2(s);
+            quantFiel.setText("");
+            confirmBase3.setVisible(true);
+            mostraQuant.setVisible(true);
+            mostraSinal.setVisible(false);
+            String p = Polinomio.getText();
+            Polinomio.setText(p + s);
+        }
     }
 
     public void handleConfirmExp2(ActionEvent actionEvent) {
@@ -167,11 +178,12 @@ public class Controller {
             CMain.solveit(2);
         }
         else{
+            sinalAtual = 2;
             quantFiel.setText("");
             mostraQuant.setText("Base do terceiro monômio");
             mostraQuant.setVisible(false);
             mostraSinal.setVisible(true);
-            confirmExp1.setVisible(false);
+            confirmExp2.setVisible(false);
             confirmSinal1.setVisible(true);
         }
     }
@@ -185,6 +197,124 @@ public class Controller {
         quantFiel.setText("");
         confirmBase2.setVisible(false);
         confirmExp2.setVisible(true);
+        quantFiel.setText("");
+    }
+
+    public void handleConfirmExp3(ActionEvent actionEvent) {
+        confirmExp3.setVisible(true);
+        int exp3 = Integer.parseInt(quantFiel.getText());
+        CMain.setExp3(exp3);
+        String p = Polinomio.getText();
+        Polinomio.setText(p + "^(" + exp3 + ")");
+        if (quantidade == 3){
+            CMain.solveit(3);
+        }
+        else{
+            sinalAtual = 3;
+            quantFiel.setText("");
+            mostraQuant.setText("Base do quarto monômio");
+            mostraQuant.setVisible(false);
+            mostraSinal.setVisible(true);
+            confirmExp1.setVisible(false);
+            confirmSinal1.setVisible(true);
+        }
+    }
+
+    public void handleConfirmBaseMon3(ActionEvent actionEvent) {
+        int base3 = Integer.parseInt(quantFiel.getText());
+        CMain.setBase3(base3);
+        mostraQuant.setText("Expoente do terceiro monômio");
+        String p = Polinomio.getText();
+        Polinomio.setText(p + String.valueOf(base3));
+        quantFiel.setText("");
+        confirmBase3.setVisible(false);
+        confirmExp3.setVisible(true);
+        quantFiel.setText("");
+    }
+
+    public void handleConfirmExp4(ActionEvent actionEvent) {
+        confirmExp3.setVisible(true);
+        int exp4 = Integer.parseInt(quantFiel.getText());
+        CMain.setExp4(exp4);
+        String p = Polinomio.getText();
+        Polinomio.setText(p + "^(" + exp4 + ")");
+        if (quantidade == 4){
+            CMain.solveit(4);
+        }
+        else{
+            sinalAtual = 4;
+            quantFiel.setText("");
+            mostraQuant.setText("Base do quinto monômio");
+            mostraQuant.setVisible(false);
+            mostraSinal.setVisible(true);
+            confirmExp1.setVisible(false);
+            confirmSinal1.setVisible(true);
+        }
+    }
+
+    public void handleConfirmBaseMon4(ActionEvent actionEvent) {
+        int base4 = Integer.parseInt(quantFiel.getText());
+        CMain.setBase4(base4);
+        mostraQuant.setText("Expoente do quarto monômio");
+        String p = Polinomio.getText();
+        Polinomio.setText(p + String.valueOf(base4));
+        quantFiel.setText("");
+        confirmBase3.setVisible(false);
+        confirmExp3.setVisible(true);
+        quantFiel.setText("");
+    }
+
+    public void handleConfirmExp5(ActionEvent actionEvent) {
+        confirmExp5.setVisible(true);
+        int exp5 = Integer.parseInt(quantFiel.getText());
+        CMain.setExp5(exp5);
+        String p = Polinomio.getText();
+        Polinomio.setText(p + "^(" + exp5 + ")");
+        if (quantidade == 5){
+            CMain.solveit(5);
+        }
+        else{
+            sinalAtual = 5;
+            quantFiel.setText("");
+            mostraQuant.setText("Base do sexto monômio");
+            mostraQuant.setVisible(false);
+            mostraSinal.setVisible(true);
+            confirmExp1.setVisible(false);
+            confirmSinal1.setVisible(true);
+        }
+    }
+
+    public void handleConfirmBaseMon5(ActionEvent actionEvent) {
+        int base5 = Integer.parseInt(quantFiel.getText());
+        CMain.setBase5(base5);
+        mostraQuant.setText("Expoente do quinto monômio");
+        String p = Polinomio.getText();
+        Polinomio.setText(p + String.valueOf(base5));
+        quantFiel.setText("");
+        confirmBase3.setVisible(false);
+        confirmExp3.setVisible(true);
+        quantFiel.setText("");
+    }
+
+    public void handleConfirmExp6(ActionEvent actionEvent) {
+        confirmExp6.setVisible(true);
+        int exp6 = Integer.parseInt(quantFiel.getText());
+        CMain.setExp6(exp6);
+        String p = Polinomio.getText();
+        Polinomio.setText(p + "^(" + exp6 + ")");
+            CMain.solveit(6);
+        }
+
+
+    public void handleConfirmBaseMon6(ActionEvent actionEvent) {
+        int base6 = Integer.parseInt(quantFiel.getText());
+        CMain.setBase6(base6);
+        mostraQuant.setText("Expoente do sexto monômio");
+        String p = Polinomio.getText();
+        Polinomio.setText(p + String.valueOf(base6));
+        quantFiel.setText("");
+        confirmBase3.setVisible(false);
+        confirmExp3.setVisible(true);
         quantFiel.setText("");
     }
 }
