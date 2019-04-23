@@ -1,5 +1,6 @@
 import org.apache.commons.math3.analysis.UnivariateFunction;
 import org.apache.commons.math3.analysis.solvers.BrentSolver;
+import org.apache.commons.math3.exception.NoBracketingException;
 import org.lsmp.djep.djep.DJep;
 import org.nfunk.jep.Node;
 import org.nfunk.jep.ParseException;
@@ -28,12 +29,13 @@ public class CMain {
 				// return 103*Math.pow(x, 5.0)-5*Math.pow(x, 4.0)-5*Math.pow(x,
 				// 3.0)-5*Math.pow(x, 2.0)-5*x-105;
 				//return 1 * Math.pow(x, 2.0) + 3 * Math.pow(x, 1.0) - 10;
-				return 2 * Math.pow(x, 5) - 5 * Math.pow(x, 3) + 10;
+				//return 2 * Math.pow(x, 5) - 5 * Math.pow(x, 3) + 10;
+				return 1 * Math.pow(x, 3.0) + 4 * Math.pow(x, 2.0) + 1 * Math.pow(x, 1.0) + 27;
 			}
 		};
 		
 
-		String str = "2 * Math.pow(x, 4) - 5 * Math.pow(x, 3) + 10";
+		String str = "1 * Math.pow(x, 3.0) + 4 * Math.pow(x, 2.0) + 1 * Math.pow(x, 1.0) + 10";
 		str = str.replaceAll("Math.pow(([^<]*))", "$1");
 		str = str.replaceAll("Math.pow(([^<]*))", "$1");
 		str = str.replaceAll("Math.pow(([^<]*))", "$1");
@@ -98,12 +100,17 @@ public class CMain {
 					&& fOne * fTwo == 0) {
 				System.out.println("Intervalo sem raiz");
 			}
-			if (Math.signum(f.value(intervalStart)) * Math.signum(f.value(intervalStart + intervalSize)) > 0
-					&& fOne * fTwo > 0) {
-				double fourthResult = solver.solve(100, f, intervalStart, intervalStart + intervalSize);
-				System.out.println("x = " + fourthResult);
-				checkIf.add(fourthResult);
+			try {
+				if (Math.signum(f.value(intervalStart)) * Math.signum(f.value(intervalStart + intervalSize)) > 0
+						&& fOne * fTwo < 0) {
+					double fourthResult = solver.solve(100, f, intervalStart, intervalStart + intervalSize);
+					System.out.println("x = " + fourthResult);
+					checkIf.add(fourthResult);
+				}
+			} catch(NoBracketingException e) {
+				System.err.println("Não há variação de sinal no intervalo [" + intervalStart + ", " + intervalStart+intervalSize + "].");
 			}
+			
 
 			intervalStart += intervalSize;
 		}
