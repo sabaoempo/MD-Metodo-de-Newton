@@ -1,3 +1,5 @@
+import java.util.StringTokenizer;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,6 +13,7 @@
  */
 public class Entrada extends javax.swing.JFrame {
     String expressaoInit = "---";
+    
     
     /**
      * Creates new form Entrada
@@ -418,7 +421,15 @@ public class Entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_jBxActionPerformed
 
     private void jBClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClearActionPerformed
-        jLExpressao.setText(expressaoInit);
+//        jLExpressao.setText(expressaoInit);
+    	if(jLExpressao.getText().length()>1 && jLExpressao.getText()!= expressaoInit) {
+	        String s = String.valueOf(jLExpressao.getText().charAt(0));
+	        for (int i=1 ; i<jLExpressao.getText().length()-1; i++)
+	        	s +=  jLExpressao.getText().charAt(i);
+	        jLExpressao.setText(s);
+    	}else if(jLExpressao.getText().length()==1)
+    		jLExpressao.setText(expressaoInit);
+        
         //TODO limpar dados da memória
     }//GEN-LAST:event_jBClearActionPerformed
 
@@ -488,6 +499,8 @@ public class Entrada extends javax.swing.JFrame {
 
     private void jBOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOkActionPerformed
         // TODO add your handling code here:
+    	String expressao = jLExpressao.getText();
+    	StringTokenizer st = new StringTokenizer(expressao); 
         TelaResultado tr = new TelaResultado();
         tr.setVisible(true);
     }//GEN-LAST:event_jBOkActionPerformed
