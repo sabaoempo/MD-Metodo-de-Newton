@@ -1,3 +1,5 @@
+import org.apache.commons.math3.analysis.UnivariateFunction;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,8 +16,9 @@ public class TelaResultado extends javax.swing.JFrame {
     /**
      * Creates new form TelaResultado
      */
-    public TelaResultado() {
+    public TelaResultado(UnivariateFunction expressao) {
         initComponents();
+        CMain cm = new CMain(expressao);
     }
 
     /**
