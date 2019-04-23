@@ -1,0 +1,16 @@
+import javax.swing.JOptionPane;
+public class CMain {
+	public static void main (String[] args) {
+		String opcao;
+		opcao = JOptionPane.showInputDialog(null, "Digite a expressão: ");
+		int var = 2;
+		String replacar = "*" + var;
+		opcao.replace("x", replacar);
+		/*for(int i = -100; i <=100; i=i+2) {
+			
+			
+			
+		}*/
+		System.out.println(opcao);
+	}
+}
