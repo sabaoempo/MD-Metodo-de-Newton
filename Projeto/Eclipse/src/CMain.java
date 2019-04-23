@@ -24,13 +24,16 @@ public class CMain {
 		UnivariateFunction f = new UnivariateFunction() {
 			@Override
 			public double value(double x) {
+				//Double dy = null;
 				// return 103*Math.pow(x, 5.0)-5*Math.pow(x, 4.0)-5*Math.pow(x,
 				// 3.0)-5*Math.pow(x, 2.0)-5*x-105;
-				return 1 * Math.pow(x, 50) - 5 * Math.pow(x, 45.0)  + 8 * Math.pow(x, 9.0)+ 6;
+				//return 1 * Math.pow(x, 2.0) + 3 * Math.pow(x, 1.0) - 10;
+				return 2 * Math.pow(x, 5) - 5 * Math.pow(x, 3) + 10;
 			}
 		};
+		
 
-		String str = "1*Math.pow(x, 2.0)-5*Math.pow(x, 1)+6";
+		String str = "2 * Math.pow(x, 4) - 5 * Math.pow(x, 3) + 10";
 		str = str.replaceAll("Math.pow(([^<]*))", "$1");
 		str = str.replaceAll("Math.pow(([^<]*))", "$1");
 		str = str.replaceAll("Math.pow(([^<]*))", "$1");
@@ -59,9 +62,9 @@ public class CMain {
 				i = matcher.end();
 			}
 			builder.append(resp.substring(i, resp.length()));
-			//System.out.println(builder.toString());
+			// System.out.println(builder.toString());
 			String f1 = engine.eval(builder.toString()).toString();
-			//System.out.println("f1: " + f1 + "resp: " + resp);
+			// System.out.println("f1: " + f1 + "resp: " + resp);
 			double fOne = Double.parseDouble(f1);
 
 			//
@@ -78,30 +81,30 @@ public class CMain {
 				i = matcher1.end();
 			}
 			builder1.append(resp1.substring(i, resp1.length()));
-			//System.out.println(builder1.toString());
+			// System.out.println(builder1.toString());
 			String f2 = engine.eval(builder1.toString()).toString();
-			//System.out.println("f2: " + f2 + "resp1: " + resp1);
+			// System.out.println("f2: " + f2 + "resp1: " + resp1);
 			double fTwo = Double.parseDouble(f2);
 
 			if (Math.signum(f.value(intervalStart)) * Math.signum(f.value(intervalStart + intervalSize)) == 0) {
 				double firstResult = solver.solve(100, f, intervalStart, intervalStart + intervalSize);
-				System.out.printf("x = %2.8f\n",  firstResult);
+				System.out.printf("raiz confirmada! x = %2.8f\n", firstResult);
 				checkIf.add(firstResult);
-			} else if (Math.signum(f.value(intervalStart)) * Math.signum(f.value(intervalStart + intervalSize)) < 0) {
+			} if (Math.signum(f.value(intervalStart)) * Math.signum(f.value(intervalStart + intervalSize)) < 0) {
 				double secondResult = solver.solve(100, f, intervalStart, intervalStart + intervalSize);
-				System.out.printf("x = %2.8f\n", secondResult);
+				System.out.printf("Provável raiz. x = %2.8f\n", secondResult);
 				checkIf.add(secondResult);
-			} else if (Math.signum(f.value(intervalStart)) * Math.signum(f.value(intervalStart + intervalSize)) != 0
+			} if (Math.signum(f.value(intervalStart)) * Math.signum(f.value(intervalStart + intervalSize)) != 0
 					&& fOne * fTwo == 0) {
 				System.out.println("Intervalo sem raiz");
 			}
-			/*
-			 * else if (Math.signum(f.value(intervalStart)) *
-			 * Math.signum(f.value(intervalStart + intervalSize)) > 0 && fOne * fTwo < 0) {
-			 * double fourthResult = solver.solve(100, f, intervalStart, intervalStart +
-			 * intervalSize); System.out.println("x = " + fourthResult);
-			 * checkIf.add(fourthResult); }
-			 */
+			if (Math.signum(f.value(intervalStart)) * Math.signum(f.value(intervalStart + intervalSize)) > 0
+					&& fOne * fTwo > 0) {
+				double fourthResult = solver.solve(100, f, intervalStart, intervalStart + intervalSize);
+				System.out.println("x = " + fourthResult);
+				checkIf.add(fourthResult);
+			}
+
 			intervalStart += intervalSize;
 		}
 	}
