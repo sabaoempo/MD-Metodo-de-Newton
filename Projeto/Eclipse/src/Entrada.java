@@ -1,3 +1,5 @@
+import java.util.StringTokenizer;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,6 +13,7 @@
  */
 public class Entrada extends javax.swing.JFrame {
     String expressaoInit = "---";
+    
     
     /**
      * Creates new form Entrada
@@ -488,6 +491,8 @@ public class Entrada extends javax.swing.JFrame {
 
     private void jBOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOkActionPerformed
         // TODO add your handling code here:
+    	String expressao = jLExpressao.getText();
+    	StringTokenizer st = new StringTokenizer(expressao); 
         TelaResultado tr = new TelaResultado();
         tr.setVisible(true);
     }//GEN-LAST:event_jBOkActionPerformed
