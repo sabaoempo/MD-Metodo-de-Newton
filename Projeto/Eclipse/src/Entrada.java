@@ -421,7 +421,15 @@ public class Entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_jBxActionPerformed
 
     private void jBClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClearActionPerformed
-        jLExpressao.setText(expressaoInit);
+//        jLExpressao.setText(expressaoInit);
+    	if(jLExpressao.getText().length()>1 && jLExpressao.getText()!= expressaoInit) {
+	        String s = String.valueOf(jLExpressao.getText().charAt(0));
+	        for (int i=1 ; i<jLExpressao.getText().length()-1; i++)
+	        	s +=  jLExpressao.getText().charAt(i);
+	        jLExpressao.setText(s);
+    	}else if(jLExpressao.getText().length()==1)
+    		jLExpressao.setText(expressaoInit);
+        
         //TODO limpar dados da memória
     }//GEN-LAST:event_jBClearActionPerformed
 
